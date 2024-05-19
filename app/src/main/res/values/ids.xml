@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recyclecart" type="id">@id/recycle</item>
+    <item name="GT" type="id">@id/gt</item>
+    <item name="RM" type="id">@id/rm</item>
+    <item name="PO" type="id">@id/po</item>
+    <item name="TotalBtns" type="id">@id/totalb</item>
+    <item name="LA" type="id">@id/la</item>
+    <item name="addnote" type="id">@id/note</item>
+    <item name="grp" type="id">@id/grp</item>
+    <item name="HA" type="id">@id/ha</item>
+    <item name="OA" type="id">@id/qa</item>
+    <item name="Dishname" type="id">@id/dis</item>
+    <item name="pricers" type="id">@id/price</item>
+    <item name="qty" type="id">@id/qte</item>
+    <item name="totalrs" type="id">@id/tolars</item>
+    <item name="elegantbtn" type="id">@id/eleg</item>
+    <item name="my_id" type="id">@id/ids</item>
+    <item name="phoneno" type="id">@id/phone</item>
+    <item name="recycle" type="id" />
+    <item name="gt" type="id" />
+    <item name="rm" type="id" />
+    <item name="po" type="id" />
+    <item name="totalb" type="id" />
+    <item name="la" type="id" />
+    <item name="note" type="id" />
+    <item name="ha" type="id" />
+    <item name="qa" type="id" />
+    <item name="dis" type="id" />
+    <item name="qte" type="id" />
+    <item name="tolars" type="id" />
+    <item name="eleg" type="id" />
+    <item name="ids" type="id" />
+    <item name="number_btn" type="id" />
+</resources>

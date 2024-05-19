@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MomsChoice" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <!-- Ajoutez le style Theme.MomsChoice -->
+    <style name="Theme.MomsChoice" parent="Base.Theme.MomsChoice">
+        <!-- Définissez les attributs de style ici -->
+    </style>
+</resources>

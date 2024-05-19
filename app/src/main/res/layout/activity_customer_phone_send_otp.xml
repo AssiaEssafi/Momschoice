@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Champ pour le numéro de téléphone -->
+
+
+    <!-- Texte pour afficher un message ou une instruction -->
+
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:minWidth="150dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Votre texte ici" />
+
+
+    <!-- Bouton pour envoyer le code OTP -->
+
+    <!-- Bouton pour vérifier le code OTP -->
+
+    <Button
+        android:id="@+id/Resendotp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_marginTop="51dp"
+        android:text="Resend OTP" />
+
+    <Button
+        android:id="@+id/Verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Resendotp"
+        android:layout_marginTop="25dp"
+        android:text="Verify" />
+
+</RelativeLayout>

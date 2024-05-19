@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TextInputLayout pour le nom sur la carte -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameoncardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="Name on Card">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameoncard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- TextInputLayout pour le numéro de carte -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardnumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameoncardLayout"
+        android:layout_margin="16dp"
+        android:hint="Card Number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- TextInputLayout pour la date d'expiration -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expirydateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardnumberLayout"
+        android:layout_margin="16dp"
+        android:hint="Expiry Date">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expirydate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- TextInputLayout pour le CVV -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/CVVLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/expirydateLayout"
+        android:layout_margin="16dp"
+        android:hint="CVV">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/CVV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Bouton pour ajouter une carte -->
+    <Button
+        android:id="@+id/addcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/CVVLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Add Card" />
+
+</RelativeLayout>

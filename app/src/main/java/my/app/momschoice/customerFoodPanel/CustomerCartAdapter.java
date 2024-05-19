@@ -1,0 +1,98 @@
+package my.app.momschoice.customerFoodPanel;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.List;
+
+import my.app.momschoice.R;
+
+public class CustomerCartAdapter extends RecyclerView.Adapter<CustomerCartAdapter.ViewHolder> {
+
+    private Context mcontext;
+    private List<Cart> cartModellist;
+    static int total = 0;
+
+    public CustomerCartAdapter(Context context, List<Cart> cartModellist) {
+        this.cartModellist = cartModellist;
+        this.mcontext = context;
+        total = 0;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mcontext).inflate(R.layout.cart_placeorder, parent, false);
+        return new CustomerCartAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        final Cart cart = cartModellist.get(position);
+        holder.dishname.setText(cart.getDishName());
+        holder.PriceRs.setText("Price: ₹ " + cart.getPrice());
+        holder.Qty.setText("× " + cart.getDishQuantity());
+        holder.Totalrs.setText("Total: ₹ " + cart.getTotalprice());
+        total += Integer.parseInt(cart.getTotalprice());
+
+        final int dishprice = Integer.parseInt(cart.getPrice());
+
+        // Set the number and value change listener
+        holder.elegantNumberButton.setNumber(cart.getDishQuantity());
+        holder.elegantNumberButton.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
+            @Override
+            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                int oldTotal = Integer.parseInt(cart.getTotalprice());
+                int newTotal = dishprice * newValue;
+                total = total - oldTotal + newTotal;
+                holder.Totalrs.setText("Total: ₹ " + newTotal);
+                cart.setDishQuantity(String.valueOf(newValue));
+                cart.setTotalprice(String.valueOf(newTotal));
+                CustomerCartFragment.grandt.setText("Grand Total: ₹ " + total);
+                FirebaseDatabase.getInstance().getReference("Cart")
+                        .child("GrandTotal")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child("GrandTotal")
+                        .setValue(String.valueOf(total));
+            }
+        });
+
+        CustomerCartFragment.grandt.setText("Grand Total: ₹ " + total);
+        FirebaseDatabase.getInstance().getReference("Cart")
+                .child("GrandTotal")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child("GrandTotal")
+                .setValue(String.valueOf(total));
+    }
+
+    @Override
+    public int getItemCount() {
+        return cartModellist.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView dishname, PriceRs, Qty, Totalrs;
+        ElegantNumberButton elegantNumberButton; // Modifier le type de la variable
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            dishname = itemView.findViewById(R.id.Dishname);
+            PriceRs = itemView.findViewById(R.id.pricers);
+            Qty = itemView.findViewById(R.id.qty);
+            Totalrs = itemView.findViewById(R.id.totalrs);
+            elegantNumberButton = itemView.findViewById(R.id.elegantbtn); // Modifier l'ID de la vue
+        }
+    }
+}

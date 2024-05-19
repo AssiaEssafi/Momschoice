@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Champ pour le code du pays -->
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/Countrycode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Country Code"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:padding="8dp" />
+
+    <!-- Champ pour le numéro de téléphone -->
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Countrycode"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:minWidth="100dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Bouton pour envoyer le code OTP -->
+    <Button
+        android:id="@+id/sendotp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phonenumber"
+        android:text="Send OTP"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
